@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.svelte';
+import Footer from '../components/Footer.svelte';
+---
+
+<BaseLayout
+  title="Team | Bingham Dentistry"
+  description="The team of dentists, dental assistants, dental hygienists, and receptionists at Bingham Dentistry. Located in Davis, California."
+>
+  <NavBar client:load />
+
+  <div class="team-top-section">
+    <div class="hero-photo-wrapper">
+      <div class="hero-photo-rect hero-photo-rect-team">
+        <img
+          class="elizabeth-hero-photo"
+          src="/images/team-page/team-group-photo.jpg"
+          alt="Team Group Photo"
+          width="525"
+          height="420"
+        />
+      </div>
+    </div>
+    <div class="description-wrapper">
+      <h3 class="photo-subtext">Come in and visit our team!</h3>
+    </div>
+  </div>
+
+  <div class="beyond-dental-section">
+    <div class="beyond-dental-container">
+      <h2 class="top-level-description-title-beyond-dental">Meet the Dentists</h2>
+      <div class="dentist-profile-card-container">
+        <div class="dentist-profile-card">
+          <img
+            src="/images/team-page/elizabeth-bingham-profile-photo.jpg"
+            alt="Elizabeth Bingham Dentistry Portrait"
+            width="400"
+            height="400"
+          />
+          <h3 class="beyond-dental-card-title">Elizabeth Bingham, DMD</h3>
+          <p class="dentist-biography-paragraphs">
+            Dr. Elizabeth Bingham is originally from the East Coast, where she completed her dental education and General Practice Residency at Tufts University and Yale-New Haven Hospital, respectively. She is a member of the Sacramento District Dental Society, the California Dental Society, the ADA, and the American Academy of Cosmetic Dentistry.
+            <span class="space-between-paragraphs"></span>
+            She is dedicated to providing each and every one of her patients with high-quality, comfortable, and long-lasting dentistry. She believes that a healthy mouth is integral to overall well-being and that dentistry is best practiced in a kind, compassionate environment.
+            <span class="space-between-paragraphs"></span>
+            When she is not practicing dentistry, Elizabeth is usually exploring Davis and the surrounding sights with her husband, Ramesh. She also enjoys biking, cooking, or reading a good book.
+          </p>
+        </div>
+        <div class="dentist-profile-card">
+          <img
+            src="/images/team-page/allison-perry-profile-photo.jpg"
+            alt="Allison Perry Dentistry Portrait"
+            width="400"
+            height="400"
+          />
+          <h3 class="beyond-dental-card-title">Allison Perry, DMD</h3>
+          <p class="dentist-biography-paragraphs">
+            Dr. Allison Perry grew up in the San Francisco Bay Area, and originally made her way to Davis for her undergraduate studies. Dr. Perry graduated from Tufts University School of Dental Medicine in 2013 and began practicing in a private office setting back in her hometown. During this period, she volunteered at Sonrisas Community Clinic in Half Moon Bay, upon which she was hired and ultimately served two years as a resident advisor for the AEGD residency program.
+            <span class="space-between-paragraphs"></span>
+            She is a member of the San Mateo County Dental Society, the California Dental Society, and the ADA. Patient comfort and care is her top priority, and she looks forward to returning to the Davis community once again.
+            <span class="space-between-paragraphs"></span>
+            Life outside of the dental office is busy and lively with her husband (a fellow Aggie) and their two young children. They enjoy biking, exploring, and hitting the farmer's market!
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,548 @@
+@import "tailwindcss";
+
+/* Base */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Typography - Spectral & Hind (loaded in layout) */
+:root {
+  --dark-text-color: #333a3d;
+  --font-heading: 'Spectral', serif;
+  --font-body: 'Hind', sans-serif;
+  --color-teal: #1a3e4c;
+  --color-teal-dark: #0A1128;
+  --color-accent: #0088a9;
+  --color-mint: #8CC7A1;
+  --color-lavender: #B8CDF8;
+  --color-cream: #FFFBEC;
+}
+
+/* Nav */
+header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 10px 6%;
+  border-bottom: solid var(--color-teal-dark);
+  box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
+}
+
+.logo-anchor-container {
+  margin-right: auto;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-names-container {
+  padding-left: 12px;
+}
+
+.logo-names-container h1 {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--dark-text-color);
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links a,
+.cta {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: var(--dark-text-color);
+}
+
+.nav__links li {
+  padding: 0 20px;
+}
+
+.nav__links li a:hover {
+  color: var(--color-accent);
+}
+
+.cta {
+  margin-left: 20px;
+  padding: 9px 25px;
+  background-color: var(--color-mint);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta:hover {
+  background-color: var(--color-lavender);
+}
+
+/* Mobile nav */
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 50;
+  left: 0;
+  top: 0;
+  background-color: var(--color-teal);
+  overflow-x: hidden;
+  transition: width 0.5s ease;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay__content a {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  color: white;
+  padding: 15px;
+  font-size: 36px;
+  display: block;
+}
+
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+  cursor: pointer;
+}
+
+@media (max-width: 800px) {
+  .nav__links,
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+  .logo-names-container h1 {
+    font-size: 18px;
+  }
+}
+
+/* Hero sections */
+.hero-wrapper,
+.hero-wrapper-contact {
+  background-color: var(--color-cream);
+  display: flex;
+  flex-direction: row;
+  max-height: 100vh;
+  min-height: 600px;
+}
+
+@media (max-width: 800px) {
+  .hero-wrapper,
+  .hero-wrapper-contact {
+    flex-direction: column;
+    min-height: 800px;
+  }
+}
+
+.description-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.description-rect {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.hero-photo-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-photo-rect {
+  height: 360px;
+  width: 360px;
+  box-shadow: -20px -10px var(--color-accent);
+}
+
+.top-level-description-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 30px;
+  color: var(--dark-text-color);
+}
+
+.top-level-description-explanation {
+  padding-top: 10px;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  color: var(--dark-text-color);
+}
+
+.elizabeth-hero-photo {
+  width: 360px;
+  height: 360px;
+  object-fit: cover;
+}
+
+/* Beyond dental section */
+.beyond-dental-section {
+  background-color: var(--color-teal);
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.beyond-dental-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-bottom: 60px;
+}
+
+.beyond-dental-card-container {
+  padding-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 25px;
+  column-gap: 5px;
+}
+
+.beyond-dental-card {
+  height: 180px;
+  width: 280px;
+  background-color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.top-level-description-title-beyond-dental {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 24px;
+  color: white;
+}
+
+.beyond-dental-card-title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  padding: 20px 0 8px 0;
+  color: var(--dark-text-color);
+}
+
+.beyond-dental-card-description {
+  padding: 10px;
+  color: var(--dark-text-color);
+}
+
+/* Team page */
+.dentist-profile-card-container {
+  padding-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  row-gap: 25px;
+  column-gap: 5px;
+  align-items: flex-start;
+}
+
+.dentist-profile-card {
+  width: 400px;
+  background-color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dentist-biography-paragraphs {
+  padding: 24px;
+  line-height: 24px;
+}
+
+.space-between-paragraphs {
+  padding-top: 10px;
+}
+
+/* Contact page */
+.contact-link {
+  color: var(--dark-text-color);
+}
+
+.contact-container-card {
+  height: 450px;
+  width: 500px;
+  background-color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-card {
+  height: auto;
+  width: 300px;
+  background-color: var(--color-mint);
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.contact-card:hover {
+  background-color: var(--color-lavender);
+}
+
+.contact-card-title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  padding-top: 12px;
+  color: var(--dark-text-color);
+}
+
+.contact-card-description {
+  color: var(--dark-text-color);
+}
+
+.phone-anchor {
+  color: var(--color-teal);
+}
+
+.phone-anchor:hover {
+  color: var(--color-lavender);
+}
+
+/* Services */
+.services-card {
+  height: auto;
+  width: 400px;
+  background-color: var(--color-cream);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.services-card-title {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  padding: 12px 20px 0 20px;
+  color: var(--dark-text-color);
+}
+
+.services-card-description {
+  padding: 24px;
+  line-height: 24px;
+  color: var(--dark-text-color);
+}
+
+/* Footer */
+.footer-container {
+  box-sizing: border-box;
+  padding: 30px;
+  display: flex;
+}
+
+.left-footer-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.left-bottom-footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.left-left-footer-container,
+.left-right-footer-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.right-footer-container {
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.right-left-footer-container,
+.right-middle-footer-container,
+.right-right-footer-container {
+  flex: 1;
+}
+
+.footer-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--dark-text-color);
+}
+
+.anchor-for-dental-logo {
+  margin: 10px 20px 10px 0;
+}
+
+.dental-association-logo {
+  filter: grayscale(100%);
+  max-height: 58px;
+  width: auto;
+}
+
+.dental-association-logo:hover {
+  filter: grayscale(0%);
+}
+
+.contact-card-no-highlight {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.footer-contact-card {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.footer-contact-card:hover {
+  background-color: var(--color-lavender);
+}
+
+.footer-contact-card-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--dark-text-color);
+}
+
+.footer-contact-card-description {
+  color: var(--dark-text-color);
+  font-size: 1rem;
+}
+
+.footer-copyright-container {
+  height: 40px;
+  background-color: var(--color-teal);
+  display: flex;
+  align-items: center;
+}
+
+.footer-copyright-title {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: white;
+  margin-left: 20px;
+}
+
+/* Team page top section */
+.team-top-section {
+  background-color: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-height: 100vh;
+  min-height: 600px;
+}
+
+.hero-photo-rect-team {
+  padding-top: 80px;
+  padding-bottom: 12px;
+  box-shadow: -20px -10px var(--color-accent);
+}
+
+.photo-subtext {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 22px;
+  color: black;
+}
+
+/* FAQ */
+.faq-container {
+  padding-top: 40px;
+  width: 80%;
+}
+
+/* Logo */
+.logo-image-container {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.logo-image-container img {
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .right-footer-container {
+    flex: 1;
+    flex-direction: column;
+  }
+  .contact-card-no-highlight,
+  .footer-contact-card {
+    padding: 10px 5px;
+  }
+}

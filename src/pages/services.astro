@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.svelte';
+import Footer from '../components/Footer.svelte';
+---
+
+<BaseLayout
+  title="Services | Bingham Dentistry"
+  description="Services available at Bingham Dentistry. Located in Davis, California."
+>
+  <NavBar client:load />
+
+  <div class="hero-wrapper">
+    <div class="description-wrapper">
+      <div class="description-rect">
+        <h2 class="top-level-description-title">Services</h2>
+        <p class="top-level-description-explanation">
+          As a family and esthetic dental practice, we provide many different dental services. Together, we can develop a personalized treatment plan to keep your teeth healthy and looking their best.
+        </p>
+      </div>
+    </div>
+    <div class="hero-photo-wrapper">
+      <div class="hero-photo-rect">
+        <img
+          class="elizabeth-hero-photo"
+          src="/images/services/covid-safety-elizabeth-gloves.jpg"
+          alt="Elizabeth with safety gear"
+          width="360"
+          height="360"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="beyond-dental-section">
+    <div class="beyond-dental-container">
+      <h2 class="top-level-description-title-beyond-dental">Our Services</h2>
+      <div class="beyond-dental-card-container">
+        <div class="services-card">
+          <h3 class="services-card-title">Preventive Care</h3>
+          <p class="services-card-description">
+            Dentistry has changed a lot in the last few decades. Using what we know about dental disease and the importance of good hygiene, we can often stop small problems before they become big ones. The core of our practice is our hygiene program, which includes routine cleanings, oral hygiene instruction, and regular checkups. The mouth is a window to the body, and we are passionate about educating our patients on the best ways to maintain good dental health.
+          </p>
+        </div>
+        <div class="services-card">
+          <h3 class="services-card-title">Esthetic Dentistry</h3>
+          <p class="services-card-description">
+            We have years of experience and education in the art of cosmetic dentistry. We believe that everybody deserves a happy and healthy smile. From teeth whitening to "invisible" ceramic tooth straightening, we offer a wide range of services to help you achieve the smile you desire. We are members of the American Academy of Cosmetic Dentistry, and we work closely with Frontier Dental Lab in El Dorado Hills for all our ceramic work.
+          </p>
+        </div>
+        <div class="services-card">
+          <h3 class="services-card-title">Restorative Care</h3>
+          <p class="services-card-description">
+            Whether you need conservative fillings to protect the integrity of your teeth or are interested in major reconstructive work, we are here to provide you with the highest level of care. We use state-of-the-art technology, including digital x-rays and intra-oral photography, to identify and diagnose issues such as cavities, cracks, and erosion in teeth. Together we can come up with a plan to maximize your visit and help you choose the best treatment for your mouth.
+          </p>
+        </div>
+        <div class="services-card">
+          <h3 class="services-card-title">TMD and Clenching/Grinding</h3>
+          <p class="services-card-description">
+            Stress, head and neck pain, poor sleep, and tooth wear are often related. The temporomandibular joint, TMJ, is the most complex joint in the body. Therefore, we always strive to practice dentistry in harmony with the joint. If you think you might clench or grind your teeth, or if you experience head and neck soreness, we can suggest treatment options to help you feel better.
+          </p>
+        </div>
+        <div class="services-card">
+          <h3 class="services-card-title">Specialty Care</h3>
+          <p class="services-card-description">
+            Sometimes we find that an interdisciplinary approach is the best way to solve a complex dental issue. We have long-established partnerships with the area's best specialists and can help provide guidance if your treatment requires special expertise in Endodontics (root canals and tooth pain), Orthodontics (tooth straightening), Oral Surgery, Periodontics (gum and bone), and Pediatric Dentistry.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

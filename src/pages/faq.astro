@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.svelte';
+import Footer from '../components/Footer.svelte';
+import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.svelte';
+---
+
+<BaseLayout
+  title="FAQ | Bingham Dentistry"
+  description="Frequently asked questions at Bingham Dentistry. Located in Davis, California."
+>
+  <NavBar client:load />
+
+  <div class="hero-wrapper">
+    <div class="description-wrapper">
+      <div class="description-rect">
+        <h2 class="top-level-description-title">FAQ</h2>
+        <p class="top-level-description-explanation">
+          Here are some answers to the most commonly asked questions. If you don't see your question here, please feel free to contact us.
+        </p>
+      </div>
+    </div>
+    <div class="hero-photo-wrapper">
+      <div class="hero-photo-rect">
+        <img
+          class="elizabeth-hero-photo"
+          src="/images/faq/faq-secretary-at-desk.jpg"
+          alt="FAQ Secretary at Desk"
+          width="360"
+          height="360"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="beyond-dental-section">
+    <div class="beyond-dental-container">
+      <h2 class="top-level-description-title-beyond-dental">FAQ</h2>
+      <div class="faq-container">
+        <FrequentlyAskedQuestions client:load />
+      </div>
+    </div>
+  </div>
+
+  <Footer />
+</BaseLayout>

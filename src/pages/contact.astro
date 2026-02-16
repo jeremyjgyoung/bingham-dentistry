@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavBar from '../components/NavBar.svelte';
+---
+
+<BaseLayout
+  title="Contact | Bingham Dentistry"
+  description="The address, phone number, and contact form for Bingham Dentistry. Located in Davis, California."
+>
+  <NavBar client:load />
+
+  <div class="hero-wrapper-contact">
+    <div class="description-wrapper">
+      <div class="description-rect">
+        <h2 class="top-level-description-title">Contact</h2>
+        <p class="top-level-description-explanation">
+          Our dental practice is located in Davis, California. We are open Monday through Thursday from 7:30 am to 3:30 pm. The best way to reach us is to call us at <br />
+          <a href="tel:+1-530-758-4900" class="phone-anchor">1 (530) 758-4900</a>.
+        </p>
+      </div>
+    </div>
+    <div class="hero-photo-wrapper">
+      <div class="hero-photo-rect">
+        <img
+          class="elizabeth-hero-photo"
+          src="/images/contact-page/contact-front-desk-image.jpg"
+          alt="Contact Us Photo"
+          width="360"
+          height="360"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="beyond-dental-section">
+    <div class="beyond-dental-container">
+      <h2 class="top-level-description-title-beyond-dental">Quality Care in Davis</h2>
+      <div class="beyond-dental-card-container">
+        <iframe
+          title="Google Map Frame for Bingham Dentistry Office"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d445.5869510192643!2d-121.75264023585447!3d38.55947405172526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808529ba1fcc0c33%3A0x43ec0a811690b77f!2sElizabeth%20W.%20Bingham%2C%20DMD!5e0!3m2!1sen!2sus!4v1653863832379!5m2!1sen!2sus"
+          width="600"
+          height="450"
+          style="border: 0"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+        <div class="contact-container-card">
+          <h3 class="beyond-dental-card-title">Contact Information</h3>
+          <a
+            class="contact-link"
+            target="_blank"
+            href="https://www.google.com/maps/place/1791+Oak+Ave,+Davis,+CA+95616/@38.55938,-121.7525384,17z/data=!3m1!4b1!4m5!3m4!1s0x808529ba1e27c131:0x37f355900de729ac!8m2!3d38.55938!4d-121.7525384"
+            rel="noreferrer"
+          >
+            <div class="contact-card">
+              <h3 class="contact-card-title">Address</h3>
+              <p class="contact-card-description">
+                1791 Oak Ave Suite D<br />
+                Davis, CA 95616<br />
+                <i>We're located on the 2nd floor</i>
+              </p>
+            </div>
+          </a>
+
+          <a class="contact-link" href="tel:+1-530-758-4900">
+            <div class="contact-card">
+              <h3 class="contact-card-title">Phone Number</h3>
+              <p class="contact-card-description">(530) 758-4900</p>
+            </div>
+          </a>
+
+          <div class="contact-card">
+            <h3 class="contact-card-title">Hours</h3>
+            <p class="contact-card-description">
+              Monday through Thursday<br />
+              7:30 am to 3:30 pm
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright-container">
+    <h4 class="footer-copyright-title">© 2022 Elizabeth W. Bingham, DMD, Inc.</h4>
+  </div>
+</BaseLayout>
