@@ -12,7 +12,6 @@
   "dependencies": {
     "@astrojs/node": "^9.0.0",
     "@astrojs/svelte": "^5.0.0",
-    "@sendgrid/mail": "^7.6.0",
     "astro": "^5.0.0",
     "bits-ui": "^2.0.0",
     "svelte": "^5.0.0"

@@ -18,14 +18,6 @@ pnpm install
 
 All photos and assets have been copied from `elizabeth-bingham-dentistry-main/public/images/` into this project’s `public/images/`. If you add or replace images, keep the same folder structure so links stay correct.
 
-## Environment
-
-For the contact form mail API, set:
-
-```env
-SENDGRID_API_KEY=your_sendgrid_api_key
-```
-
 ## Commands
 
 | Command       | Action         |
