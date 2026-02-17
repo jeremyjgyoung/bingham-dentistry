@@ -44,30 +44,47 @@ import { Image } from "astro:assets";
         Complete Dental Care Goes Beyond the Teeth, Gums and Mouth.
       </h2>
       <div class="beyond-dental-card-container">
-        <a href="/services" class="beyond-dental-card beyond-dental-card-linked">
+        <a
+          href="/services"
+          class="beyond-dental-card beyond-dental-card-linked"
+        >
           <h3 class="beyond-dental-card-title">Latest Technology</h3>
           <p class="beyond-dental-card-description">
             We use digital x-rays, laser therapy, and intraoral cameras, as well
             as other cutting-edge technology to help you make the best decisions
             for your health.
           </p>
-          <span class="beyond-dental-card-more">More Services <span class="beyond-dental-card-arrow" aria-hidden="true">→</span></span>
+          <span class="beyond-dental-card-more"
+            >More Services <span
+              class="beyond-dental-card-arrow"
+              aria-hidden="true">→</span
+            ></span
+          >
         </a>
-        <a href="/services" class="beyond-dental-card beyond-dental-card-linked">
+        <a href="/contact" class="beyond-dental-card beyond-dental-card-linked">
           <h3 class="beyond-dental-card-title">Flexible Appointments</h3>
           <p class="beyond-dental-card-description">
             Let one of our scheduling experts know what we can help you with.
             We'll work together to get you in to see us when it works for you.
           </p>
-          <span class="beyond-dental-card-more">More Services <span class="beyond-dental-card-arrow" aria-hidden="true">→</span></span>
+          <span class="beyond-dental-card-more"
+            >Contact Us <span
+              class="beyond-dental-card-arrow"
+              aria-hidden="true">→</span
+            ></span
+          >
         </a>
-        <a href="/services" class="beyond-dental-card beyond-dental-card-linked">
+        <a href="/faq" class="beyond-dental-card beyond-dental-card-linked">
           <h3 class="beyond-dental-card-title">Insurance Made Easy</h3>
           <p class="beyond-dental-card-description">
             Insurance can be complicated. We make it simple. We can answer any
             questions you have about insurance and payments.
           </p>
-          <span class="beyond-dental-card-more">More Services <span class="beyond-dental-card-arrow" aria-hidden="true">→</span></span>
+          <span class="beyond-dental-card-more"
+            >FAQ <span class="beyond-dental-card-arrow" aria-hidden="true"
+              >→</span
+            ></span
+          >
         </a>
       </div>
     </div>
@@ -98,6 +115,73 @@ import { Image } from "astro:assets";
       </div>
     </div>
   </div>
+
+  <section class="testimonials-section" aria-labelledby="testimonials-heading">
+    <div class="testimonials-container">
+      <h2 id="testimonials-heading" class="testimonials-heading">Here are what some of the over 2000 positive reviews are saying about us.</h2>
+      <div class="testimonials-carousel">
+        <div class="testimonials-viewport">
+          <div class="testimonials-track" role="list">
+            <blockquote class="testimonial-slide" role="listitem">
+              <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+              <p class="testimonial-text">I'm very thankful to be a patient of Dr. Bingham. She is kind, honest, and extremely thorough. She explains everything in a way that is easy to understand and makes sure I feel comfortable and confident in my treatment. She is especially gentle and attentive, which makes such a difference. The staff is friendly and organized, and every appointment is a positive experience. I highly recommend Dr. Bingham for anyone seeking compassionate, high-quality dental care.</p>
+            </blockquote>
+            <blockquote class="testimonial-slide" role="listitem">
+              <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+              <p class="testimonial-text">Dr. Perry was friendly, professional and incredibly thorough in evaluating my dental health. The front staff is also very friendly. I highly recommend this clinic.</p>
+            </blockquote>
+            <blockquote class="testimonial-slide" role="listitem">
+              <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+              <p class="testimonial-text">Always the best. Professional and friendly.</p>
+            </blockquote>
+            <blockquote class="testimonial-slide" role="listitem">
+              <span class="testimonial-quote-mark" aria-hidden="true">"</span>
+              <p class="testimonial-text">Fantastic visit, as always, the hygienist is always so careful about my sensitive teeth, gives suggestions, and is positive and professional.</p>
+            </blockquote>
+          </div>
+        </div>
+        <button type="button" class="testimonials-btn testimonials-prev" aria-label="Previous review">
+          <span aria-hidden="true">←</span>
+        </button>
+        <button type="button" class="testimonials-btn testimonials-next" aria-label="Next review">
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+      <div class="testimonials-dots" role="tablist" aria-label="Review navigation">
+        <button type="button" class="testimonials-dot active" role="tab" aria-selected="true" aria-label="Review 1" data-index="0"></button>
+        <button type="button" class="testimonials-dot" role="tab" aria-selected="false" aria-label="Review 2" data-index="1"></button>
+        <button type="button" class="testimonials-dot" role="tab" aria-selected="false" aria-label="Review 3" data-index="2"></button>
+        <button type="button" class="testimonials-dot" role="tab" aria-selected="false" aria-label="Review 4" data-index="3"></button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      const track = document.querySelector('.testimonials-track') as HTMLElement | null;
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const prevBtn = document.querySelector('.testimonials-prev');
+      const nextBtn = document.querySelector('.testimonials-next');
+      const dots = document.querySelectorAll('.testimonials-dot');
+      const total = slides.length;
+      let index = 0;
+
+      function goTo(i: number) {
+        index = ((i % total) + total) % total;
+        if (track) track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, d) => {
+          dot.classList.toggle('active', d === index);
+          dot.setAttribute('aria-selected', d === index ? 'true' : 'false');
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => goTo(index - 1));
+      nextBtn?.addEventListener('click', () => goTo(index + 1));
+      dots.forEach((dot) => {
+        dot.addEventListener('click', () => goTo(Number(dot.getAttribute('data-index'))));
+      });
+    })();
+  </script>
 
   <Footer client:load />
 </BaseLayout>

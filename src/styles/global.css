@@ -326,6 +326,149 @@ header {
   transform: translateX(4px);
 }
 
+/* Testimonials section – carousel, dark background */
+.testimonials-section {
+  background-color: rgb(26, 62, 76);
+  padding: 56px 20px 64px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonials-container {
+  width: 90%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonials-heading {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 26px;
+  color: #fff;
+  margin: 0 0 40px 0;
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.testimonials-carousel {
+  position: relative;
+  width: 100%;
+}
+
+.testimonials-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.testimonials-track {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.35s ease-in-out;
+  will-change: transform;
+}
+
+.testimonial-slide {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  border: none;
+  flex: 0 0 100%;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.testimonial-quote-mark {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  font-family: var(--font-heading);
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.testimonial-text {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 1.1rem;
+  font-style: italic;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0 0 0 1.5rem;
+  padding-top: 0.5rem;
+}
+
+.testimonials-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.testimonials-btn:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.testimonials-prev {
+  left: -20px;
+}
+
+.testimonials-next {
+  right: -20px;
+}
+
+@media (min-width: 769px) {
+  .testimonials-prev {
+    left: -32px;
+  }
+  .testimonials-next {
+    right: -32px;
+  }
+}
+
+.testimonials-dots {
+  display: flex;
+  gap: 10px;
+  margin-top: 28px;
+  justify-content: center;
+}
+
+.testimonials-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.35);
+  cursor: pointer;
+  padding: 0;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.testimonials-dot:hover {
+  background-color: rgba(255, 255, 255, 0.55);
+}
+
+.testimonials-dot.active {
+  background-color: #fff;
+  transform: scale(1.2);
+}
+
 /* Team page */
 .dentist-profile-card-container {
   padding-top: 40px;
