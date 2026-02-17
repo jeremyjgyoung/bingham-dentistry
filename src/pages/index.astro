@@ -157,13 +157,14 @@ import { Image } from "astro:assets";
   </section>
 
   <script>
-    (function () {
+    function initTestimonialsCarousel() {
       const track = document.querySelector('.testimonials-track') as HTMLElement | null;
       const slides = document.querySelectorAll('.testimonial-slide');
       const prevBtn = document.querySelector('.testimonials-prev');
       const nextBtn = document.querySelector('.testimonials-next');
       const dots = document.querySelectorAll('.testimonials-dot');
       const total = slides.length;
+      if (total === 0) return;
       let index = 0;
 
       function goTo(i: number) {
@@ -180,7 +181,12 @@ import { Image } from "astro:assets";
       dots.forEach((dot) => {
         dot.addEventListener('click', () => goTo(Number(dot.getAttribute('data-index'))));
       });
-    })();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
+    } else {
+      initTestimonialsCarousel();
+    }
   </script>
 
   <Footer client:load />
