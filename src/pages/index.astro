@@ -1,19 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import { Image } from 'astro:assets';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import { Image } from "astro:assets";
 ---
 
-<BaseLayout title="Bingham Dentistry" description="Family and esthetic dentists located in Davis, California.">
+<BaseLayout
+  title="Bingham Dentistry"
+  description="Family and esthetic dentists located in Davis, California."
+>
   <NavBar client:load />
 
   <div class="hero-wrapper">
     <div class="description-wrapper">
       <div class="description-rect">
-        <h2 class="top-level-description-title">Family and Esthetic Dentistry</h2>
+        <h2 class="top-level-description-title">
+          Family and Esthetic Dentistry
+        </h2>
         <p class="top-level-description-explanation">
-          A healthy mouth is vital to preserving your general well-being. Together, we can attain the goal of a beautiful and healthy smile that everybody deserves.
+          A healthy mouth is vital to preserving your general well-being.
+          Together, we can attain the goal of a beautiful and healthy smile that
+          everybody deserves.
         </p>
       </div>
     </div>
@@ -39,15 +46,25 @@ import { Image } from 'astro:assets';
       <div class="beyond-dental-card-container">
         <div class="beyond-dental-card">
           <h3 class="beyond-dental-card-title">Latest Technology</h3>
-          <p class="beyond-dental-card-description">We use digital x-rays and intraoral cameras, as well as other cutting-edge technology to help you make the best decisions for your health.</p>
+          <p class="beyond-dental-card-description">
+            We use digital x-rays, laser therapy, and intraoral cameras, as well
+            as other cutting-edge technology to help you make the best decisions
+            for your health.
+          </p>
         </div>
         <div class="beyond-dental-card">
           <h3 class="beyond-dental-card-title">Flexible Appointments</h3>
-          <p class="beyond-dental-card-description">Let one of our scheduling experts know what we can help you with. We'll work together to get you in to see us when it works for you.</p>
+          <p class="beyond-dental-card-description">
+            Let one of our scheduling experts know what we can help you with.
+            We'll work together to get you in to see us when it works for you.
+          </p>
         </div>
         <div class="beyond-dental-card">
           <h3 class="beyond-dental-card-title">Insurance Made Easy</h3>
-          <p class="beyond-dental-card-description">Insurance can be complicated. We make it simple. We can answer any questions you have about insurance and payments.</p>
+          <p class="beyond-dental-card-description">
+            Insurance can be complicated. We make it simple. We can answer any
+            questions you have about insurance and payments.
+          </p>
         </div>
       </div>
     </div>
@@ -58,7 +75,11 @@ import { Image } from 'astro:assets';
       <div class="description-rect">
         <h2 class="top-level-description-title">COVID Safety</h2>
         <p class="top-level-description-explanation">
-          We take the safety of our patients and our patients' families seriously. We have always been dedicated to the highest standard of care when it comes to infection control; this will not change. In preparation for your visit, please wear a mask and let us know if you, or anyone you have been in contact with, have contracted COVID.
+          We take the safety of our patients and our patients' families
+          seriously. We have always been dedicated to the highest standard of
+          care when it comes to infection control; this will not change. In
+          preparation for your visit, please wear a mask and let us know if you,
+          or anyone you have been in contact with, have contracted COVID.
         </p>
       </div>
     </div>
@@ -66,7 +87,7 @@ import { Image } from 'astro:assets';
       <div class="hero-photo-rect">
         <Image
           class="elizabeth-hero-photo"
-          src="/images/covid-safety/covid-safety-face-mask.jpg"
+          src="/images/questions/dental-work-cleaning-bingham-dentistry-in-davis.jpg"
           alt="Dental hygienist in face mask"
           width={360}
           height={360}
