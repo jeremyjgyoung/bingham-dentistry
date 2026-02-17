@@ -58,7 +58,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="footer-copyright-container">
-        <h3 className="footer-copyright-title">© 2022 Elizabeth W. Bingham, DMD, Inc.</h3>
+        <h3 className="footer-copyright-title">© 2026 Elizabeth W. Bingham, DMD, Inc.</h3>
       </div>
     </footer>
   );
