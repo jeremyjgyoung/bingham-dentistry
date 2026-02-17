@@ -1,0 +1,55 @@
+---
+import { FAQ_ITEMS } from '../data/faq';
+import './FrequentlyAskedQuestions.css';
+---
+<div class="faq-accordion-wrapper">
+  <div class="faq-accordion">
+    {FAQ_ITEMS.map((item) => (
+      <div class="faq-item" data-faq-key={item.key} data-open="false">
+        <button type="button" class="faq-trigger" aria-expanded="false" aria-controls={`faq-panel-${item.key}`} id={`faq-trigger-${item.key}`}>
+          {item.question}
+          <span class="faq-chevron" aria-hidden="true">▼</span>
+        </button>
+        <div class="faq-content" id={`faq-panel-${item.key}`} role="region" aria-labelledby={`faq-trigger-${item.key}`}>
+          {item.content === 'foods' && (
+            <div class="faq-content-block">
+              <p>It's not a secret that sugar isn't good for your teeth. We like to focus less on the quantity of sugar you consume, and more on how often you consume it. A sugary drink together with a meal is less damaging to your teeth than a sugary drink – like sweetened coffee, juice, milk, or soda – that you sip throughout the day.</p>
+              <p>Most foods are okay in moderation, including sugar! It's just best to follow up sweets with water or mouthwash, which flushes the sugar away and allows the mouth to rebalance itself. Always wait at least 20 minutes after eating a meal or a sugary snack before brushing your teeth, so as not to abrade away healthy enamel.</p>
+              <p>The healthy fats in cheese and nuts are great for your teeth. They are what we call cariostatic, which means that they help slow the growth of bacteria in the mouth.</p>
+            </div>
+          )}
+          {item.content === 'tooth-out' && (
+            <div class="faq-content-block">
+              <p>It's normal for children to lose baby teeth from time to time, but adult teeth typically do not fall out without significant force or trauma. If your tooth is knocked out, try not to touch the root, and do not clean off any blood; there are live cells on the outside of the root that must remain alive if the tooth is to be successfully saved. If possible, place the tooth immediately in a clean glass or sandwich bag with milk. If you do not have milk, you can put the tooth in salt water solution, or hold the tooth in your mouth. Do not attempt to place the tooth back in its socket, and contact the dentist immediately. The sooner we can see you, the better the chance that the tooth can be reimplanted and saved.</p>
+              <p>Keep in mind - teeth are like tiny icebergs, where the part you see in your mouth is only a fraction of the whole. The information above is only relevant if your entire tooth was knocked out, including the root; it may look like the photo below.</p>
+              <img src="/images/faq/full-tooth-faq.png" alt="Full Tooth Photo" class="elizabeth-hero-photo faq-image" />
+              <p>If what you see looks more like the second photo, then you may have lost a crown or a portion of your tooth, but the root structure is likely intact. While this can still be uncomfortable and an urgent issue, it is not a true dental emergency. A dislodged crown should be kept clean and dry. You can schedule an appointment with us to have it evaluated or recemented at your convenience.</p>
+              <img src="/images/faq/crown-faq.png" alt="Crown Photo" class="elizabeth-hero-photo faq-image" />
+            </div>
+          )}
+          {item.answer && <p>{item.answer}</p>}
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-accordion .faq-item').forEach((item) => {
+    const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
+    if (!trigger) return;
+    trigger.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+      item.setAttribute('data-open', isOpen ? 'false' : 'true');
+      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+    });
+  });
+
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('.faq-accordion .faq-item').forEach((item) => {
+      item.setAttribute('data-open', 'false');
+      const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>

@@ -1,15 +1,16 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/demo-cards.css";
 ---
 
 <BaseLayout
   title="Demo cards – Bingham Dentistry"
   description="Card style options for the Beyond Dental section."
+  noindex={true}
 >
-  <NavBar client:load />
+  <NavBar />
 
   <div class="demo-cards-section">
     <div class="demo-cards-container">
@@ -118,5 +119,5 @@ import "../styles/demo-cards.css";
     </div>
   </div>
 
-  <Footer client:load />
+  <Footer />
 </BaseLayout>

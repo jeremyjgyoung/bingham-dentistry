@@ -1,8 +1,8 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
-import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions";
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
+import FrequentlyAskedQuestions from "../components/FrequentlyAskedQuestions.astro";
 import { Image } from "astro:assets";
 ---
 
@@ -10,12 +10,12 @@ import { Image } from "astro:assets";
   title="FAQ | Bingham Dentistry"
   description="Frequently asked questions at Bingham Dentistry. Located in Davis, California."
 >
-  <NavBar client:load />
+  <NavBar />
 
   <div class="hero-wrapper">
     <div class="description-wrapper">
       <div class="description-rect">
-        <h2 class="top-level-description-title">FAQ</h2>
+        <h2 class="top-level-description-title">Frequently asked questions</h2>
         <p class="top-level-description-explanation">
           Here are some answers to the most commonly asked questions. If you
           don't see your question here, please feel free to contact us.
@@ -37,12 +37,12 @@ import { Image } from "astro:assets";
 
   <div class="beyond-dental-section">
     <div class="beyond-dental-container">
-      <h2 class="top-level-description-title-beyond-dental">FAQ</h2>
+      <h2 class="top-level-description-title-beyond-dental">Common questions</h2>
       <div class="faq-container">
-        <FrequentlyAskedQuestions client:load />
+        <FrequentlyAskedQuestions />
       </div>
     </div>
   </div>
 
-  <Footer client:load />
+  <Footer />
 </BaseLayout>

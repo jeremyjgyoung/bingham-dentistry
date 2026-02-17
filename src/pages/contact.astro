@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import NavBar from "../components/NavBar";
+import NavBar from "../components/NavBar.astro";
+import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
 ---
 
@@ -8,7 +9,7 @@ import { Image } from "astro:assets";
   title="Contact | Bingham Dentistry"
   description="The address, phone number, and contact form for Bingham Dentistry. Located in Davis, California."
 >
-  <NavBar client:load />
+  <NavBar />
 
   <div class="hero-wrapper-contact">
     <div class="description-wrapper">
@@ -41,8 +42,9 @@ import { Image } from "astro:assets";
       <h2 class="top-level-description-title-beyond-dental">
         Quality Care in Davis
       </h2>
-      <div class="beyond-dental-card-container">
+      <div class="beyond-dental-card-container contact-page-cards">
         <iframe
+          class="contact-page-map"
           title="Google Map Frame for Bingham Dentistry Office"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d445.5869510192643!2d-121.75264023585447!3d38.55947405172526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808529ba1fcc0c33%3A0x43ec0a811690b77f!2sElizabeth%20W.%20Bingham%2C%20DMD!5e0!3m2!1sen!2sus!4v1653863832379!5m2!1sen!2sus"
           width="600"
@@ -50,7 +52,8 @@ import { Image } from "astro:assets";
           style="border: 0"
           allowfullscreen
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"></iframe>
+          referrerpolicy="no-referrer-when-downgrade"
+        />
         <div class="contact-container-card">
           <h3 class="beyond-dental-card-title">Contact Information</h3>
           <a
@@ -76,7 +79,7 @@ import { Image } from "astro:assets";
             </div>
           </a>
 
-          <div class="contact-card">
+          <div class="contact-card contact-card-no-link">
             <h3 class="contact-card-title">Hours</h3>
             <p class="contact-card-description">
               Monday through Thursday<br />
@@ -88,9 +91,5 @@ import { Image } from "astro:assets";
     </div>
   </div>
 
-  <div class="footer-copyright-container">
-    <h4 class="footer-copyright-title">
-      © 2022 Elizabeth W. Bingham, DMD, Inc.
-    </h4>
-  </div>
+  <Footer />
 </BaseLayout>

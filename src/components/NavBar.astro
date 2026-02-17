@@ -1,0 +1,86 @@
+---
+---
+<header>
+  <a href="/" class="logo-anchor-container">
+    <div class="logo-image-container">
+      <img
+        src="/images/logo/logo-owl-bingham.png"
+        alt="Elizabeth Bingham & Allison Perry Dentistry Logo"
+        width="400"
+        height="400"
+        loading="eager"
+      />
+    </div>
+    <div class="logo-names-container">
+      <h1 class="logo-names-heading">
+        <span class="elizabeth-bingham-navbar">Elizabeth Bingham, DMD</span>
+        <span class="allison-perry-navbar">Allison Perry, DMD</span>
+      </h1>
+    </div>
+  </a>
+  <nav>
+    <ul class="nav__links">
+      <li><a href="/team">Our Team</a></li>
+      <li><a href="/services">Services</a></li>
+      <li><a href="/faq">FAQ</a></li>
+    </ul>
+  </nav>
+  <a href="/contact" class="cta">Contact</a>
+  <button type="button" class="menu cta" id="menu-button" aria-expanded="false" aria-controls="mobile__menu" aria-haspopup="true">Menu</button>
+</header>
+
+<div id="mobile__menu" class="overlay" role="dialog" aria-modal="true" aria-label="Main menu" aria-hidden="true">
+  <a href="/" class="close" id="menu-close" aria-label="Close menu">&times;</a>
+  <div class="overlay__content" id="menu-links">
+    <a href="/">Home</a>
+    <a href="/team">Our Team</a>
+    <a href="/services">Services</a>
+    <a href="/faq">FAQ</a>
+    <a href="/contact">Contact</a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const menuButton = document.getElementById('menu-button');
+    const overlay = document.getElementById('mobile__menu');
+    const menuClose = document.getElementById('menu-close');
+    const menuLinks = document.getElementById('menu-links');
+
+    function openMenu() {
+      overlay?.classList.add('overlay--active');
+      overlay?.setAttribute('aria-hidden', 'false');
+      menuButton?.setAttribute('aria-expanded', 'true');
+      menuClose?.focus();
+    }
+
+    function closeMenu() {
+      overlay?.classList.remove('overlay--active');
+      overlay?.setAttribute('aria-hidden', 'true');
+      menuButton?.setAttribute('aria-expanded', 'false');
+      menuButton?.focus();
+    }
+
+    menuButton?.addEventListener('click', () => {
+      const isOpen = overlay?.classList.contains('overlay--active');
+      if (isOpen) closeMenu();
+      else openMenu();
+    });
+
+    menuClose?.addEventListener('click', closeMenu);
+
+    menuLinks?.addEventListener('click', (e: Event) => {
+      if ((e.target as HTMLElement).tagName === 'A') closeMenu();
+    });
+
+    overlay?.addEventListener('keydown', (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+
+    document.addEventListener('astro:page-load', () => {
+      overlay?.classList.remove('overlay--active');
+      overlay?.setAttribute('aria-hidden', 'true');
+      menuButton?.setAttribute('aria-expanded', 'false');
+    });
+  })();
+</script>

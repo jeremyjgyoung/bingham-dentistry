@@ -1,5 +1,3 @@
-@import "tailwindcss";
-
 /* Base */
 * {
   box-sizing: border-box;
@@ -11,6 +9,28 @@ a {
   text-decoration: none;
 }
 
+/* Skip link – visible on focus */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-teal);
+  color: white;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+}
+
+.skip-link:focus {
+  clip: auto;
+  clip-path: none;
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
 /* Typography - Spectral & Hind (loaded in layout) */
 :root {
   --dark-text-color: #333a3d;
@@ -19,9 +39,27 @@ a {
   --color-teal: #1a3e4c;
   --color-teal-dark: #0A1128;
   --color-accent: #0088a9;
+  --color-accent-soft: #4aa3b8;
   --color-mint: #8CC7A1;
+  --color-mint-soft: #b8ddc6;
   --color-lavender: #B8CDF8;
+  --color-lavender-soft: #d4e2fc;
   --color-cream: #FFFBEC;
+  --color-cream-alt: #FAF7EF;
+  --color-overlay-text: #edf0f1;
+  /* Spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  /* Breakpoints (use in media queries: max-width: var(--bp-tablet)) */
+  --bp-mobile: 600px;
+  --bp-tablet: 800px;
+  --bp-carousel: 769px;
 }
 
 /* Nav */
@@ -29,10 +67,10 @@ header {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 10px 6%;
+  padding: var(--space-2) 6%;
   border-bottom: solid var(--color-teal-dark);
   box-shadow: 0 2px 2px -2px rgba(0, 0, 0, 0.2);
-  background-color: #fff;
+  background-color: white;
 }
 
 .logo-anchor-container {
@@ -43,7 +81,7 @@ header {
 }
 
 .logo-names-container {
-  padding-left: 12px;
+  padding-left: var(--space-3);
 }
 
 .logo-names-container h1 {
@@ -51,6 +89,11 @@ header {
   font-size: 1.4rem;
   font-weight: 500;
   color: var(--dark-text-color);
+}
+
+.logo-names-heading .elizabeth-bingham-navbar,
+.logo-names-heading .allison-perry-navbar {
+  display: block;
 }
 
 .nav__links {
@@ -66,7 +109,7 @@ header {
 }
 
 .nav__links li {
-  padding: 0 20px;
+  padding: 0 var(--space-5);
 }
 
 .nav__links li a:hover {
@@ -74,17 +117,17 @@ header {
 }
 
 .cta {
-  margin-left: 20px;
-  padding: 9px 25px;
-  background-color: var(--color-mint);
+  margin-left: var(--space-5);
+  padding: var(--space-2) var(--space-5);
+  background-color: var(--color-mint-soft);
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .cta:hover {
-  background-color: var(--color-lavender);
+  background-color: var(--color-lavender-soft);
 }
 
 /* Mobile nav */
@@ -118,10 +161,9 @@ header {
 
 .overlay__content a {
   font-family: var(--font-body);
-  font-size: 1.2rem;
-  color: white;
-  padding: 15px;
   font-size: 36px;
+  color: white;
+  padding: var(--space-4);
   display: block;
 }
 
@@ -130,11 +172,17 @@ header {
   top: 20px;
   right: 45px;
   font-size: 60px;
-  color: #edf0f1;
+  color: var(--color-overlay-text);
   cursor: pointer;
 }
 
-@media (max-width: 800px) {
+.overlay .close:focus-visible,
+.overlay__content a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 4px;
+}
+
+@media (max-width: var(--bp-tablet)) {
 
   .nav__links,
   .cta {
@@ -160,7 +208,7 @@ header {
   min-height: 600px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: var(--bp-tablet)) {
 
   .hero-wrapper,
   .hero-wrapper-contact {
@@ -197,7 +245,7 @@ header {
 .hero-photo-rect {
   height: 360px;
   width: 360px;
-  box-shadow: -20px -10px var(--color-accent);
+  box-shadow: -20px -10px var(--color-accent-soft);
 }
 
 .top-level-description-title {
@@ -208,7 +256,7 @@ header {
 }
 
 .top-level-description-explanation {
-  padding-top: 10px;
+  padding-top: var(--space-2);
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 22px;
@@ -226,7 +274,7 @@ header {
   background-color: var(--color-teal);
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: var(--space-5);
 }
 
 .beyond-dental-container {
@@ -235,18 +283,18 @@ header {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-bottom: 60px;
+  padding-bottom: var(--space-8);
 }
 
 .beyond-dental-card-container {
-  padding-top: 40px;
+  padding-top: var(--space-7);
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  row-gap: 25px;
-  column-gap: 5px;
+  row-gap: var(--space-5);
+  column-gap: var(--space-2);
 }
 
 .beyond-dental-card {
@@ -257,8 +305,8 @@ header {
   flex-direction: column;
   align-items: stretch;
   border-radius: 10px;
-  border-left: 4px solid var(--color-accent);
-  padding: 24px 20px;
+  border-left: 4px solid var(--color-accent-soft);
+  padding: var(--space-5) var(--space-5);
   box-sizing: border-box;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -280,7 +328,7 @@ header {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 1.35rem;
-  margin: 0 0 12px 0;
+  margin: 0 0 var(--space-3) 0;
   color: var(--dark-text-color);
 }
 
@@ -304,11 +352,11 @@ header {
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--color-accent);
-  margin-top: 16px;
+  margin-top: var(--space-4);
   padding: 0;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-2);
   text-decoration: none;
 }
 
@@ -328,8 +376,8 @@ header {
 
 /* Testimonials section – carousel, dark background */
 .testimonials-section {
-  background-color: rgb(26, 62, 76);
-  padding: 56px 20px 64px;
+  background-color: var(--color-teal);
+  padding: var(--space-8) var(--space-5) var(--space-8);
   display: flex;
   justify-content: center;
 }
@@ -346,8 +394,8 @@ header {
   font-family: var(--font-heading);
   font-weight: 500;
   font-size: 26px;
-  color: #fff;
-  margin: 0 0 40px 0;
+  color: white;
+  margin: 0 0 var(--space-7) 0;
   letter-spacing: 0.02em;
   text-align: center;
   line-height: 1.35;
@@ -399,8 +447,8 @@ header {
   font-style: italic;
   line-height: 1.65;
   color: rgba(255, 255, 255, 0.95);
-  margin: 0 0 0 1.5rem;
-  padding-top: 0.5rem;
+  margin: 0 0 0 var(--space-4);
+  padding-top: var(--space-2);
 }
 
 .testimonials-btn {
@@ -433,7 +481,7 @@ header {
   right: -20px;
 }
 
-@media (min-width: 769px) {
+@media (min-width: var(--bp-carousel)) {
   .testimonials-prev {
     left: -32px;
   }
@@ -444,8 +492,8 @@ header {
 
 .testimonials-dots {
   display: flex;
-  gap: 10px;
-  margin-top: 28px;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
   justify-content: center;
 }
 
@@ -465,20 +513,20 @@ header {
 }
 
 .testimonials-dot.active {
-  background-color: #fff;
+  background-color: white;
   transform: scale(1.2);
 }
 
 /* Team page */
 .dentist-profile-card-container {
-  padding-top: 40px;
+  padding-top: var(--space-7);
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-  row-gap: 25px;
-  column-gap: 5px;
+  row-gap: var(--space-5);
+  column-gap: var(--space-2);
   align-items: flex-start;
 }
 
@@ -493,12 +541,16 @@ header {
 }
 
 .dentist-biography-paragraphs {
-  padding: 24px;
+  padding: var(--space-5);
   line-height: 24px;
 }
 
-.space-between-paragraphs {
-  padding-top: 10px;
+.dentist-biography-paragraphs p {
+  margin: 0 0 var(--space-2) 0;
+}
+
+.dentist-biography-paragraphs p:last-child {
+  margin-bottom: 0;
 }
 
 /* Contact page */
@@ -507,8 +559,9 @@ header {
 }
 
 .contact-container-card {
-  height: 450px;
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
+  min-height: 320px;
   background-color: var(--color-cream);
   display: flex;
   align-items: center;
@@ -520,9 +573,9 @@ header {
 .contact-card {
   height: auto;
   width: 300px;
-  background-color: var(--color-mint);
-  margin-bottom: 20px;
-  padding-bottom: 20px;
+  background-color: var(--color-mint-soft);
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-5);
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -531,14 +584,41 @@ header {
 }
 
 .contact-card:hover {
-  background-color: var(--color-lavender);
+  background-color: var(--color-lavender-soft);
+}
+
+.contact-card-no-link {
+  cursor: default;
+}
+
+.contact-card-no-link:hover {
+  background-color: var(--color-mint-soft);
+}
+
+.contact-page-cards {
+  flex-wrap: wrap;
+}
+
+.contact-page-map {
+  max-width: 100%;
+  height: auto;
+  min-height: 300px;
+}
+
+@media (max-width: var(--bp-tablet)) {
+  .contact-container-card {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    min-height: auto;
+  }
 }
 
 .contact-card-title {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 22px;
-  padding-top: 12px;
+  padding-top: var(--space-3);
   color: var(--dark-text-color);
 }
 
@@ -556,9 +636,9 @@ header {
 
 /* Services */
 .services-section .services-card-container {
-  max-width: calc(3 * 380px + 2 * 24px);
-  column-gap: 24px;
-  row-gap: 24px;
+  max-width: calc(3 * 380px + 2 * var(--space-5));
+  column-gap: var(--space-5);
+  row-gap: var(--space-5);
   justify-content: flex-start;
 }
 
@@ -570,8 +650,8 @@ header {
   flex-direction: column;
   align-items: stretch;
   border-radius: 10px;
-  border-left: 4px solid var(--color-accent);
-  padding: 24px 20px;
+  border-left: 4px solid var(--color-accent-soft);
+  padding: var(--space-5) var(--space-5);
   box-sizing: border-box;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
@@ -586,7 +666,7 @@ header {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 1.35rem;
-  margin: 0 0 12px 0;
+  margin: 0 0 var(--space-3) 0;
   color: var(--dark-text-color);
 }
 
@@ -603,7 +683,7 @@ header {
 /* Footer */
 .footer-container {
   box-sizing: border-box;
-  padding: 30px;
+  padding: var(--space-6);
   display: flex;
 }
 
@@ -648,7 +728,7 @@ header {
 }
 
 .anchor-for-dental-logo {
-  margin: 10px 20px 10px 0;
+  margin: var(--space-2) var(--space-5) var(--space-2) 0;
 }
 
 .dental-association-logo {
@@ -662,7 +742,7 @@ header {
 }
 
 .contact-card-no-highlight {
-  padding: 40px 20px;
+  padding: var(--space-7) var(--space-5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -671,7 +751,7 @@ header {
 }
 
 .footer-contact-card {
-  padding: 40px 20px;
+  padding: var(--space-7) var(--space-5);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -680,7 +760,7 @@ header {
 }
 
 .footer-contact-card:hover {
-  background-color: var(--color-lavender);
+  background-color: var(--color-lavender-soft);
 }
 
 .footer-contact-card-title {
@@ -707,7 +787,7 @@ header {
   font-weight: 500;
   font-size: 0.75rem;
   color: white;
-  margin-left: 20px;
+  margin-left: var(--space-5);
 }
 
 /* Team page top section */
@@ -721,14 +801,14 @@ header {
 }
 
 .team-top-section .hero-photo-wrapper {
-  padding-top: 80px;
-  padding-bottom: 12px;
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-3);
 }
 
 .hero-photo-rect-team {
   width: 525px;
   height: 420px;
-  box-shadow: -20px -10px var(--color-accent);
+  box-shadow: -20px -10px var(--color-accent-soft);
 }
 
 .hero-photo-rect-team .elizabeth-hero-photo {
@@ -741,12 +821,12 @@ header {
   font-family: var(--font-body);
   font-weight: 300;
   font-size: 22px;
-  color: black;
+  color: var(--dark-text-color);
 }
 
 /* FAQ */
 .faq-container {
-  padding-top: 40px;
+  padding-top: var(--space-7);
   width: 100%;
 }
 
@@ -761,7 +841,7 @@ header {
   height: auto;
 }
 
-@media (max-width: 600px) {
+@media (max-width: var(--bp-mobile)) {
   .right-footer-container {
     flex: 1;
     flex-direction: column;
@@ -769,6 +849,30 @@ header {
 
   .contact-card-no-highlight,
   .footer-contact-card {
-    padding: 10px 5px;
+    padding: var(--space-2) var(--space-1);
+  }
+}
+
+/* Focus visibility for interactive elements */
+.cta:focus-visible,
+.testimonials-btn:focus-visible,
+.testimonials-dot:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .overlay,
+  .cta,
+  .beyond-dental-card,
+  .beyond-dental-card-arrow,
+  .services-card,
+  .testimonials-track,
+  .testimonials-btn,
+  .testimonials-dot,
+  .faq-trigger,
+  .faq-chevron {
+    transition: none !important;
   }
 }

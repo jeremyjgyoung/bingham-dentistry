@@ -80,7 +80,7 @@
 /* —— Style A: Reference (flat, cream, rounded) —— */
 .demo-card-style-a {
   width: 280px;
-  background-color: #FAF7EF;
+  background-color: var(--color-cream-alt);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -124,7 +124,7 @@
 /* —— Style F: Warm beige + subtle inner glow (reference variant) —— */
 .demo-card-style-f {
   width: 280px;
-  background-color: #FAF7EF;
+  background-color: var(--color-cream-alt);
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.04);
