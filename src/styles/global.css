@@ -250,13 +250,23 @@ header {
 }
 
 .beyond-dental-card {
-  height: 180px;
-  width: 280px;
+  width: 320px;
+  min-height: 180px;
   background-color: var(--color-cream);
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: stretch;
   border-radius: 10px;
+  border-left: 4px solid var(--color-accent);
+  padding: 24px 20px;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.beyond-dental-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .top-level-description-title-beyond-dental {
@@ -269,14 +279,51 @@ header {
 .beyond-dental-card-title {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 22px;
-  padding: 20px 0 8px 0;
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
   color: var(--dark-text-color);
 }
 
 .beyond-dental-card-description {
-  padding: 10px;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
   color: var(--dark-text-color);
+  flex: 1;
+}
+
+/* Latest Technology card: whole card links to /services, with "More Services" at bottom */
+.beyond-dental-card-linked {
+  text-decoration: none;
+}
+
+.beyond-dental-card-more {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin-top: 16px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.beyond-dental-card-more:hover {
+  color: var(--color-accent);
+}
+
+.beyond-dental-card-arrow {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.beyond-dental-card-more:hover .beyond-dental-card-arrow,
+.beyond-dental-card-linked:hover .beyond-dental-card-arrow {
+  transform: translateX(4px);
 }
 
 /* Team page */
@@ -365,29 +412,49 @@ header {
 }
 
 /* Services */
+.services-section .services-card-container {
+  max-width: calc(3 * 380px + 2 * 24px);
+  column-gap: 24px;
+  row-gap: 24px;
+  justify-content: flex-start;
+}
+
 .services-card {
-  height: auto;
-  width: 400px;
+  width: 380px;
+  min-height: 180px;
   background-color: var(--color-cream);
   display: flex;
-  align-items: center;
   flex-direction: column;
+  align-items: stretch;
   border-radius: 10px;
-  overflow: hidden;
+  border-left: 4px solid var(--color-accent);
+  padding: 24px 20px;
+  box-sizing: border-box;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.services-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .services-card-title {
   font-family: var(--font-body);
   font-weight: 300;
-  font-size: 22px;
-  padding: 12px 20px 0 20px;
+  font-size: 1.35rem;
+  margin: 0 0 12px 0;
   color: var(--dark-text-color);
 }
 
 .services-card-description {
-  padding: 24px;
-  line-height: 24px;
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
   color: var(--dark-text-color);
+  flex: 1;
 }
 
 /* Footer */
@@ -510,10 +577,21 @@ header {
   min-height: 600px;
 }
 
-.hero-photo-rect-team {
+.team-top-section .hero-photo-wrapper {
   padding-top: 80px;
   padding-bottom: 12px;
+}
+
+.hero-photo-rect-team {
+  width: 525px;
+  height: 420px;
   box-shadow: -20px -10px var(--color-accent);
+}
+
+.hero-photo-rect-team .elizabeth-hero-photo {
+  width: 525px;
+  height: 420px;
+  object-fit: cover;
 }
 
 .photo-subtext {

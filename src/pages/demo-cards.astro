@@ -1,0 +1,122 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import "../styles/demo-cards.css";
+---
+
+<BaseLayout
+  title="Demo cards – Bingham Dentistry"
+  description="Card style options for the Beyond Dental section."
+>
+  <NavBar client:load />
+
+  <div class="demo-cards-section">
+    <div class="demo-cards-container">
+      <h2 class="demo-cards-title">Demo card styles</h2>
+      <p class="demo-cards-subtitle">Same content, different treatments. Choose the style you like best.</p>
+
+      <div class="demo-cards-grid">
+        <!-- Style A: Reference (flat cream) -->
+        <div>
+          <div class="demo-card-label">Style A — Flat cream</div>
+          <div class="demo-card-style-a">
+            <div class="demo-card-inner">
+              <h3>Latest Technology</h3>
+              <p>
+                We use digital x-rays, laser therapy, and intraoral cameras, as well
+                as other cutting-edge technology to
+                help you make the best decisions for your health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Style B: Soft shadow -->
+        <div>
+          <div class="demo-card-label">Style B — Soft shadow</div>
+          <div class="demo-card-style-b">
+            <div class="demo-card-inner">
+              <h3>Latest Technology</h3>
+              <p>
+                We use digital x-rays, laser therapy, and intraoral cameras, as well
+                as other cutting-edge technology to
+                help you make the best decisions for your health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Style C: Left accent border -->
+        <div>
+          <div class="demo-card-label">Style C — Accent border</div>
+          <div class="demo-card-style-c">
+            <div class="demo-card-inner">
+              <h3>Latest Technology</h3>
+              <p>
+                We use digital x-rays, laser therapy, and intraoral cameras, as well
+                as other cutting-edge technology to
+                help you make the best decisions for your health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- More Services card (Style C - used on home page) -->
+        <div>
+          <div class="demo-card-label">More Services card (home page)</div>
+          <a href="/services" class="demo-card-style-c demo-card-link">
+            <span class="demo-card-link-text">More Services</span>
+          </a>
+        </div>
+
+        <!-- Style D: Elevated -->
+        <div>
+          <div class="demo-card-label">Style D — Elevated</div>
+          <div class="demo-card-style-d">
+            <div class="demo-card-inner">
+              <h3>Latest Technology</h3>
+              <p>
+                We use digital x-rays, laser therapy, and intraoral cameras, as well
+                as other cutting-edge technology to
+                help you make the best decisions for your health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Style E: Outlined -->
+        <div>
+          <div class="demo-card-label">Style E — Outlined</div>
+          <div class="demo-card-style-e">
+            <div class="demo-card-inner">
+              <h3>Latest Technology</h3>
+              <p>
+                We use digital x-rays, laser therapy, and intraoral cameras, as well
+                as other cutting-edge technology to
+                help you make the best decisions for your health.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Style F: Warm beige + subtle edge -->
+        <div>
+          <div class="demo-card-label">Style F — Beige + subtle edge</div>
+          <div class="demo-card-style-f">
+            <div class="demo-card-inner">
+              <h3>Latest Technology</h3>
+              <p>
+                We use digital x-rays, laser therapy, and intraoral cameras, as well
+                as other cutting-edge technology to
+                help you make the best decisions for your health.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <Footer client:load />
+</BaseLayout>
