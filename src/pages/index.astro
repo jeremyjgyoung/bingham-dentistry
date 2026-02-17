@@ -157,36 +157,56 @@ import { Image } from "astro:assets";
   </section>
 
   <script>
-    function initTestimonialsCarousel() {
-      const track = document.querySelector('.testimonials-track') as HTMLElement | null;
-      const slides = document.querySelectorAll('.testimonial-slide');
-      const prevBtn = document.querySelector('.testimonials-prev');
-      const nextBtn = document.querySelector('.testimonials-next');
-      const dots = document.querySelectorAll('.testimonials-dot');
-      const total = slides.length;
-      if (total === 0) return;
-      let index = 0;
+    (function () {
+      document.addEventListener('click', (e: MouseEvent) => {
+        const target = e.target as HTMLElement;
+        const section = target.closest('.testimonials-section');
+        if (!section) return;
+        const track = section.querySelector('.testimonials-track') as HTMLElement | null;
+        const slides = section.querySelectorAll('.testimonial-slide');
+        const dots = section.querySelectorAll('.testimonials-dot');
+        const total = slides.length;
+        if (total === 0 || !track) return;
 
-      function goTo(i: number) {
-        index = ((i % total) + total) % total;
-        if (track) track.style.transform = `translateX(-${index * 100}%)`;
-        dots.forEach((dot, d) => {
-          dot.classList.toggle('active', d === index);
-          dot.setAttribute('aria-selected', d === index ? 'true' : 'false');
-        });
-      }
+        const activeDot = section.querySelector('.testimonials-dot.active');
+        let index = activeDot ? Number((activeDot as HTMLElement).getAttribute('data-index')) : 0;
+        if (Number.isNaN(index)) index = 0;
 
-      prevBtn?.addEventListener('click', () => goTo(index - 1));
-      nextBtn?.addEventListener('click', () => goTo(index + 1));
-      dots.forEach((dot) => {
-        dot.addEventListener('click', () => goTo(Number(dot.getAttribute('data-index'))));
+        function goTo(i: number) {
+          index = ((i % total) + total) % total;
+          if (track) track.style.transform = `translateX(-${index * 100}%)`;
+          dots.forEach((dot, d) => {
+            dot.classList.toggle('active', d === index);
+            dot.setAttribute('aria-selected', d === index ? 'true' : 'false');
+          });
+        }
+
+        if (target.closest('.testimonials-prev')) {
+          e.preventDefault();
+          goTo(index - 1);
+        } else if (target.closest('.testimonials-next')) {
+          e.preventDefault();
+          goTo(index + 1);
+        } else if (target.classList.contains('testimonials-dot')) {
+          e.preventDefault();
+          const i = target.getAttribute('data-index');
+          if (i != null) goTo(Number(i));
+        }
       });
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initTestimonialsCarousel);
-    } else {
-      initTestimonialsCarousel();
-    }
+      document.addEventListener('astro:page-load', () => {
+        const section = document.querySelector('.testimonials-section');
+        if (!section) return;
+        const track = section.querySelector('.testimonials-track') as HTMLElement | null;
+        const dots = section.querySelectorAll('.testimonials-dot');
+        if (track && dots.length) {
+          track.style.transform = 'translateX(0%)';
+          dots.forEach((dot, d) => {
+            dot.classList.toggle('active', d === 0);
+            dot.setAttribute('aria-selected', d === 0 ? 'true' : 'false');
+          });
+        }
+      });
+    })();
   </script>
 
   <Footer client:load />
