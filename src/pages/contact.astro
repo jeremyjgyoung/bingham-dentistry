@@ -1,7 +1,7 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar';
-import { Image } from 'astro:assets';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import NavBar from "../components/NavBar";
+import { Image } from "astro:assets";
 ---
 
 <BaseLayout
@@ -15,8 +15,11 @@ import { Image } from 'astro:assets';
       <div class="description-rect">
         <h2 class="top-level-description-title">Contact</h2>
         <p class="top-level-description-explanation">
-          Our dental practice is located in Davis, California. We are open Monday through Thursday from 7:30 am to 3:30 pm. The best way to reach us is to call us at <br />
-          <a href="tel:+1-530-758-4900" class="phone-anchor">1 (530) 758-4900</a>.
+          Our dental practice is located in Davis, California. We are open
+          Monday through Thursday from 7:30 am to 3:30 pm. The best way to reach
+          us is to call us at <br />
+          <a href="tel:+1-530-758-4900" class="phone-anchor">1 (530) 758-4900</a
+          >.
         </p>
       </div>
     </div>
@@ -24,7 +27,7 @@ import { Image } from 'astro:assets';
       <div class="hero-photo-rect">
         <Image
           class="elizabeth-hero-photo"
-          src="/images/contact-page/contact-front-desk-image.jpg"
+          src="/images/contact-page/answering-phone-bingham-dentistry-contact.jpg"
           alt="Contact Us Photo"
           width={360}
           height={360}
@@ -35,7 +38,9 @@ import { Image } from 'astro:assets';
 
   <div class="beyond-dental-section">
     <div class="beyond-dental-container">
-      <h2 class="top-level-description-title-beyond-dental">Quality Care in Davis</h2>
+      <h2 class="top-level-description-title-beyond-dental">
+        Quality Care in Davis
+      </h2>
       <div class="beyond-dental-card-container">
         <iframe
           title="Google Map Frame for Bingham Dentistry Office"
@@ -45,8 +50,7 @@ import { Image } from 'astro:assets';
           style="border: 0"
           allowfullscreen
           loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-        ></iframe>
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
         <div class="contact-container-card">
           <h3 class="beyond-dental-card-title">Contact Information</h3>
           <a
@@ -85,6 +89,8 @@ import { Image } from 'astro:assets';
   </div>
 
   <div class="footer-copyright-container">
-    <h4 class="footer-copyright-title">© 2022 Elizabeth W. Bingham, DMD, Inc.</h4>
+    <h4 class="footer-copyright-title">
+      © 2022 Elizabeth W. Bingham, DMD, Inc.
+    </h4>
   </div>
 </BaseLayout>
