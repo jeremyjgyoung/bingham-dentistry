@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout
@@ -13,12 +14,12 @@ import Footer from '../components/Footer';
   <div class="team-top-section">
     <div class="hero-photo-wrapper">
       <div class="hero-photo-rect hero-photo-rect-team">
-        <img
+        <Image
           class="elizabeth-hero-photo"
           src="/images/team-page/team-group-photo.jpg"
           alt="Team Group Photo"
-          width="525"
-          height="420"
+          width={525}
+          height={420}
         />
       </div>
     </div>
@@ -32,11 +33,11 @@ import Footer from '../components/Footer';
       <h2 class="top-level-description-title-beyond-dental">Meet the Dentists</h2>
       <div class="dentist-profile-card-container">
         <div class="dentist-profile-card">
-          <img
+          <Image
             src="/images/team-page/elizabeth-bingham-profile-photo.jpg"
             alt="Elizabeth Bingham Dentistry Portrait"
-            width="400"
-            height="400"
+            width={400}
+            height={400}
           />
           <h3 class="beyond-dental-card-title">Elizabeth Bingham, DMD</h3>
           <p class="dentist-biography-paragraphs">
@@ -48,11 +49,11 @@ import Footer from '../components/Footer';
           </p>
         </div>
         <div class="dentist-profile-card">
-          <img
+          <Image
             src="/images/team-page/allison-perry-profile-photo.jpg"
             alt="Allison Perry Dentistry Portrait"
-            width="400"
-            height="400"
+            width={400}
+            height={400}
           />
           <h3 class="beyond-dental-card-title">Allison Perry, DMD</h3>
           <p class="dentist-biography-paragraphs">

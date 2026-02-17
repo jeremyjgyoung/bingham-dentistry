@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout
@@ -22,12 +23,12 @@ import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions';
     </div>
     <div class="hero-photo-wrapper">
       <div class="hero-photo-rect">
-        <img
+        <Image
           class="elizabeth-hero-photo"
           src="/images/faq/faq-secretary-at-desk.jpg"
           alt="FAQ Secretary at Desk"
-          width="360"
-          height="360"
+          width={360}
+          height={360}
         />
       </div>
     </div>

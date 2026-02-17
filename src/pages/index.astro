@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout title="Bingham Dentistry" description="Family and esthetic dentists located in Davis, California.">
@@ -18,13 +19,13 @@ import Footer from '../components/Footer';
     </div>
     <div class="hero-photo-wrapper">
       <div class="hero-photo-rect">
-        <img
+        <Image
           class="elizabeth-hero-photo"
           src="/images/home-page/bingham-perry.jpg"
           alt="Bingham & Perry Duo Portrait"
-          width="360"
-          height="360"
-          fetchpriority="high"
+          width={360}
+          height={360}
+          fetchPriority="high"
         />
       </div>
     </div>
@@ -63,12 +64,12 @@ import Footer from '../components/Footer';
     </div>
     <div class="hero-photo-wrapper">
       <div class="hero-photo-rect">
-        <img
+        <Image
           class="elizabeth-hero-photo"
           src="/images/covid-safety/covid-safety-face-mask.jpg"
           alt="Dental hygienist in face mask"
-          width="360"
-          height="360"
+          width={360}
+          height={360}
         />
       </div>
     </div>

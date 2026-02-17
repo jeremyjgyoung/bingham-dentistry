@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import NavBar from '../components/NavBar';
+import { Image } from 'astro:assets';
 ---
 
 <BaseLayout
@@ -21,12 +22,12 @@ import NavBar from '../components/NavBar';
     </div>
     <div class="hero-photo-wrapper">
       <div class="hero-photo-rect">
-        <img
+        <Image
           class="elizabeth-hero-photo"
           src="/images/contact-page/contact-front-desk-image.jpg"
           alt="Contact Us Photo"
-          width="360"
-          height="360"
+          width={360}
+          height={360}
         />
       </div>
     </div>
