@@ -1,8 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar.svelte';
-import Footer from '../components/Footer.svelte';
-import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.svelte';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
+import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions';
 ---
 
 <BaseLayout
@@ -42,5 +42,5 @@ import FrequentlyAskedQuestions from '../components/FrequentlyAskedQuestions.sve
     </div>
   </div>
 
-  <Footer />
+  <Footer client:load />
 </BaseLayout>

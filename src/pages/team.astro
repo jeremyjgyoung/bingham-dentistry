@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavBar from '../components/NavBar.svelte';
-import Footer from '../components/Footer.svelte';
+import NavBar from '../components/NavBar';
+import Footer from '../components/Footer';
 ---
 
 <BaseLayout
@@ -67,5 +67,5 @@ import Footer from '../components/Footer.svelte';
     </div>
   </div>
 
-  <Footer />
+  <Footer client:load />
 </BaseLayout>

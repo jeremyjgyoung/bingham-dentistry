@@ -1,0 +1,84 @@
+.faq-accordion-wrapper {
+  width: 100%;
+}
+
+.faq-accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  background-color: var(--color-cream, #fffbec);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.faq-item[data-open] {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.faq-trigger {
+  width: 100%;
+  padding: 18px 20px;
+  text-align: left;
+  font-family: var(--font-body, 'Hind', sans-serif);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--dark-text-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  transition: background-color 0.15s ease;
+}
+
+.faq-trigger:hover,
+.faq-trigger:focus-visible {
+  background-color: rgba(0, 0, 0, 0.04);
+  outline: none;
+}
+
+.faq-chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+  color: var(--dark-text-color);
+  opacity: 0.7;
+}
+
+.faq-item[data-open] .faq-chevron {
+  transform: rotate(180deg);
+}
+
+/* Base UI: hide panel when item is closed (keepMounted keeps in DOM) */
+.faq-item .faq-content {
+  display: none;
+}
+
+.faq-item[data-open] .faq-content {
+  display: block;
+}
+
+.faq-content {
+  padding: 0 20px 20px;
+  font-family: var(--font-body, 'Hind', sans-serif);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--dark-text-color);
+}
+
+.faq-content p {
+  margin-bottom: 10px;
+}
+
+.faq-image {
+  max-width: 360px;
+  height: auto;
+  margin: 12px 0;
+  border-radius: 4px;
+}

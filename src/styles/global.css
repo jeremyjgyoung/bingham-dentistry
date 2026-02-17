@@ -135,13 +135,16 @@ header {
 }
 
 @media (max-width: 800px) {
+
   .nav__links,
   .cta {
     display: none;
   }
+
   .menu {
     display: initial;
   }
+
   .logo-names-container h1 {
     font-size: 18px;
   }
@@ -158,6 +161,7 @@ header {
 }
 
 @media (max-width: 800px) {
+
   .hero-wrapper,
   .hero-wrapper-contact {
     flex-direction: column;
@@ -522,7 +526,7 @@ header {
 /* FAQ */
 .faq-container {
   padding-top: 40px;
-  width: 80%;
+  width: 100%;
 }
 
 /* Logo */
@@ -541,6 +545,7 @@ header {
     flex: 1;
     flex-direction: column;
   }
+
   .contact-card-no-highlight,
   .footer-contact-card {
     padding: 10px 5px;
