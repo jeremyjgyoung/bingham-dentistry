@@ -9,18 +9,18 @@ export default function Footer() {
           <div className="left-bottom-footer-container">
             <div className="left-left-footer-container">
               <a href="https://www.ada.org/" target="_blank" rel="noreferrer" className="anchor-for-dental-logo">
-                <img className="dental-association-logo" src="/images/dental-association-logos/ada-logo.svg" alt="ADA Logo" width={100} height={32} />
+                <img className="dental-association-logo" src="/images/dental-association-logos/ada-logo.svg" alt="ADA Logo" width={100} height={32} loading="lazy" />
               </a>
               <a href="https://www.cda.org/" target="_blank" rel="noreferrer" className="anchor-for-dental-logo">
-                <img className="dental-association-logo" src="/images/dental-association-logos/cda-logo.png" alt="CDA Logo" width={90} height={90} />
+                <img className="dental-association-logo" src="/images/dental-association-logos/cda-logo.png" alt="CDA Logo" width={90} height={90} loading="lazy" />
               </a>
             </div>
             <div className="left-right-footer-container">
               <a href="https://aacd.com/" target="_blank" rel="noreferrer" className="anchor-for-dental-logo">
-                <img className="dental-association-logo" src="/images/dental-association-logos/aacd-logo.png" alt="AACD Logo" width={133} height={36} />
+                <img className="dental-association-logo" src="/images/dental-association-logos/aacd-logo.png" alt="AACD Logo" width={133} height={36} loading="lazy" />
               </a>
               <a href="https://www.sdds.org/" target="_blank" rel="noreferrer" className="anchor-for-dental-logo">
-                <img className="dental-association-logo" src="/images/dental-association-logos/sdds-logo.png" alt="SDDS Logo" width={100} height={58} />
+                <img className="dental-association-logo" src="/images/dental-association-logos/sdds-logo.png" alt="SDDS Logo" width={100} height={58} loading="lazy" />
               </a>
             </div>
           </div>
