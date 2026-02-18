@@ -3,9 +3,6 @@
 A modern rebuild of the Elizabeth Bingham Dentistry website using:
 
 - **Astro** v5 (upgrade to v6 when stable with `pnpm add astro@next`)
-- **Tailwind CSS v4** (via `@tailwindcss/postcss`)
-- **Svelte v5**
-- **Bits UI v2** (FAQ accordion)
 - **pnpm**
 
 ## Setup
