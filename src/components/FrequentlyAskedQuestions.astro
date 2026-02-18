@@ -35,21 +35,28 @@ import './FrequentlyAskedQuestions.css';
 </div>
 
 <script>
-  document.querySelectorAll('.faq-accordion .faq-item').forEach((item) => {
-    const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
-    if (!trigger) return;
-    trigger.addEventListener('click', () => {
-      const isOpen = item.getAttribute('data-open') === 'true';
-      item.setAttribute('data-open', isOpen ? 'false' : 'true');
-      trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-    });
-  });
-
-  document.addEventListener('astro:page-load', () => {
+  function initFaqAccordion() {
     document.querySelectorAll('.faq-accordion .faq-item').forEach((item) => {
+      const trigger = item.querySelector('.faq-trigger');
+      if (!trigger) return;
       item.setAttribute('data-open', 'false');
-      const trigger = item.querySelector<HTMLButtonElement>('.faq-trigger');
-      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      trigger.setAttribute('aria-expanded', 'false');
     });
-  });
+  }
+
+  function handleFaqClick(e) {
+    const trigger = e.target.closest('.faq-trigger');
+    if (!trigger) return;
+    const item = trigger.closest('.faq-item');
+    if (!item) return;
+    e.preventDefault();
+    const isOpen = item.getAttribute('data-open') === 'true';
+    item.setAttribute('data-open', isOpen ? 'false' : 'true');
+    trigger.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+  }
+
+  document.addEventListener('click', handleFaqClick);
+
+  initFaqAccordion();
+  document.addEventListener('astro:page-load', initFaqAccordion);
 </script>
