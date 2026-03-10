@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
 a {
   text-decoration: none;
 }
@@ -130,9 +138,47 @@ header {
   background-color: var(--color-lavender-soft);
 }
 
-/* Mobile nav */
+/* Mobile nav – hamburger */
 .menu {
   display: none;
+}
+
+.menu--hamburger {
+  padding: var(--space-2) var(--space-3);
+  /* display only set in mobile media query so .menu { display: none } wins by default */
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__icon {
+  width: 24px;
+  height: 18px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.menu__bar {
+  display: block;
+  width: 100%;
+  height: 3px;
+  border-radius: 2px;
+  background-color: var(--dark-text-color);
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+.menu--open .menu__icon .menu__bar:nth-child(1) {
+  transform: translateY(7.5px) rotate(45deg);
+}
+
+.menu--open .menu__icon .menu__bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu--open .menu__icon .menu__bar:nth-child(3) {
+  transform: translateY(-7.5px) rotate(-45deg);
 }
 
 .overlay {
@@ -169,11 +215,18 @@ header {
 
 .overlay .close {
   position: absolute;
-  top: 20px;
-  right: 45px;
-  font-size: 60px;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-size: 2.5rem;
   color: var(--color-overlay-text);
   cursor: pointer;
+  padding: var(--space-2);
+  line-height: 1;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .overlay .close:focus-visible,
@@ -182,15 +235,18 @@ header {
   outline-offset: 4px;
 }
 
-@media (max-width: var(--bp-tablet)) {
+/* Small mobile only: hide nav items, show hamburger */
+@media (max-width: 600px) {
 
   .nav__links,
-  .cta {
+  header > a.cta {
     display: none;
   }
 
   .menu {
-    display: initial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .logo-names-container h1 {
@@ -208,12 +264,26 @@ header {
   min-height: 600px;
 }
 
-@media (max-width: var(--bp-tablet)) {
+/* Stack hero sections vertically on tablet and below */
+@media (max-width: 800px) {
 
   .hero-wrapper,
   .hero-wrapper-contact {
     flex-direction: column;
-    min-height: 800px;
+    min-height: auto;
+    max-height: none;
+    padding: var(--space-6) var(--space-4);
+    gap: var(--space-6);
+  }
+
+  .hero-wrapper .description-wrapper,
+  .hero-wrapper-contact .description-wrapper {
+    order: 1;
+  }
+
+  .hero-wrapper .hero-photo-wrapper,
+  .hero-wrapper-contact .hero-photo-wrapper {
+    order: 2;
   }
 }
 
@@ -226,12 +296,15 @@ header {
 }
 
 .description-rect {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 var(--space-4);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .hero-photo-wrapper {
@@ -240,12 +313,16 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 100%;
 }
 
 .hero-photo-rect {
-  height: 360px;
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  aspect-ratio: 1;
   box-shadow: -20px -10px var(--color-accent-soft);
+  overflow: hidden;
 }
 
 .top-level-description-title {
@@ -263,9 +340,21 @@ header {
   color: var(--dark-text-color);
 }
 
+@media (max-width: 800px) {
+  .top-level-description-title {
+    font-size: 1.5rem;
+  }
+
+  .top-level-description-explanation {
+    font-size: 1.1rem;
+  }
+}
+
 .elizabeth-hero-photo {
-  width: 360px;
-  height: 360px;
+  width: 100%;
+  height: 100%;
+  max-width: 360px;
+  max-height: 360px;
   object-fit: cover;
 }
 
@@ -278,12 +367,21 @@ header {
 }
 
 .beyond-dental-container {
-  width: 80%;
+  width: 90%;
+  max-width: 1200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
   padding-bottom: var(--space-8);
+}
+
+@media (max-width: 800px) {
+  .beyond-dental-container {
+    width: 95%;
+    padding-left: var(--space-4);
+    padding-right: var(--space-4);
+  }
 }
 
 .beyond-dental-card-container {
@@ -297,8 +395,18 @@ header {
   column-gap: var(--space-2);
 }
 
+@media (max-width: 600px) {
+  .beyond-dental-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .beyond-dental-card {
   width: 320px;
+  min-width: 0;
+  flex: 1 1 280px;
+  max-width: 100%;
   min-height: 180px;
   background-color: var(--color-cream);
   display: flex;
@@ -310,6 +418,13 @@ header {
   box-sizing: border-box;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 800px) {
+  .beyond-dental-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 .beyond-dental-card:hover {
@@ -372,6 +487,14 @@ header {
 .beyond-dental-card-more:hover .beyond-dental-card-arrow,
 .beyond-dental-card-linked:hover .beyond-dental-card-arrow {
   transform: translateX(4px);
+}
+
+/* Hero "Meet the Doctors" link: neutral grey → black */
+.hero-link-neutral .beyond-dental-card-more {
+  color: #6b7280;
+}
+.hero-link-neutral:hover .beyond-dental-card-more {
+  color: #374151;
 }
 
 /* Testimonials section – carousel, dark background */
@@ -474,14 +597,14 @@ header {
 }
 
 .testimonials-prev {
-  left: -20px;
+  left: 4px;
 }
 
 .testimonials-next {
-  right: -20px;
+  right: 4px;
 }
 
-@media (min-width: var(--bp-carousel)) {
+@media (min-width: 769px) {
   .testimonials-prev {
     left: -32px;
   }
@@ -530,8 +653,16 @@ header {
   align-items: flex-start;
 }
 
+@media (max-width: 600px) {
+  .dentist-profile-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .dentist-profile-card {
-  width: 400px;
+  width: 100%;
+  max-width: 400px;
   background-color: var(--color-cream);
   display: flex;
   align-items: center;
@@ -597,20 +728,32 @@ header {
 
 .contact-page-cards {
   flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-5);
 }
 
 .contact-page-map {
   max-width: 100%;
+  width: 100%;
   height: auto;
-  min-height: 300px;
+  min-height: 250px;
 }
 
-@media (max-width: var(--bp-tablet)) {
+@media (max-width: 800px) {
+  .contact-page-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
   .contact-container-card {
     width: 100%;
     max-width: 500px;
-    height: auto;
     min-height: auto;
+  }
+
+  .contact-card {
+    width: 100%;
+    max-width: 300px;
   }
 }
 
@@ -642,8 +785,18 @@ header {
   justify-content: flex-start;
 }
 
+@media (max-width: 600px) {
+  .services-section .services-card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .services-card {
   width: 380px;
+  min-width: 0;
+  flex: 1 1 320px;
+  max-width: 100%;
   min-height: 180px;
   background-color: var(--color-cream);
   display: flex;
@@ -655,6 +808,17 @@ header {
   box-sizing: border-box;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 800px) {
+  .services-section .services-card-container {
+    max-width: 100%;
+  }
+
+  .services-card {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
 }
 
 .services-card:hover {
@@ -803,18 +967,34 @@ header {
 .team-top-section .hero-photo-wrapper {
   padding-top: var(--space-8);
   padding-bottom: var(--space-3);
+  width: 100%;
 }
 
 .hero-photo-rect-team {
-  width: 525px;
-  height: 420px;
+  width: 100%;
+  max-width: 525px;
+  height: auto;
+  aspect-ratio: 525 / 420;
   box-shadow: -20px -10px var(--color-accent-soft);
+  overflow: hidden;
 }
 
 .hero-photo-rect-team .elizabeth-hero-photo {
-  width: 525px;
-  height: 420px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+}
+
+@media (max-width: 800px) {
+  .team-top-section {
+    min-height: auto;
+    max-height: none;
+    padding: var(--space-6) var(--space-4);
+  }
+
+  .team-top-section .hero-photo-wrapper {
+    padding-top: var(--space-5);
+  }
 }
 
 .photo-subtext {
@@ -841,12 +1021,28 @@ header {
   height: auto;
 }
 
-@media (max-width: var(--bp-mobile)) {
-  .right-footer-container {
-    flex: 1;
+@media (max-width: 800px) {
+  .footer-container {
     flex-direction: column;
+    padding: var(--space-5) var(--space-4);
   }
 
+  .right-footer-container {
+    flex: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+  }
+
+  .right-left-footer-container,
+  .right-middle-footer-container,
+  .right-right-footer-container {
+    flex: none;
+  }
+}
+
+@media (max-width: 600px) {
   .contact-card-no-highlight,
   .footer-contact-card {
     padding: var(--space-2) var(--space-1);
@@ -865,6 +1061,7 @@ header {
 @media (prefers-reduced-motion: reduce) {
   .overlay,
   .cta,
+  .menu__bar,
   .beyond-dental-card,
   .beyond-dental-card-arrow,
   .services-card,

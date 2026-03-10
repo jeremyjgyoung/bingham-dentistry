@@ -41,30 +41,41 @@
 </div>
 
 <script>
-  (function () {
+  function initMenu() {
     const menuButton = document.getElementById('menu-button');
     const overlay = document.getElementById('mobile__menu');
     const menuClose = document.getElementById('menu-close');
     const menuLinks = document.getElementById('menu-links');
 
+    if (!menuButton || !overlay) return;
+
+    // Reset to closed state on every navigation
+    overlay.classList.remove('overlay--active');
+    overlay.setAttribute('aria-hidden', 'true');
+    menuButton.setAttribute('aria-expanded', 'false');
+    menuButton.setAttribute('aria-label', 'Open menu');
+    menuButton.classList.remove('menu--open');
+
     function openMenu() {
-      overlay?.classList.add('overlay--active');
-      overlay?.setAttribute('aria-hidden', 'false');
-      menuButton?.setAttribute('aria-expanded', 'true');
+      overlay!.classList.add('overlay--active');
+      overlay!.setAttribute('aria-hidden', 'false');
+      menuButton!.setAttribute('aria-expanded', 'true');
+      menuButton!.setAttribute('aria-label', 'Close menu');
+      menuButton!.classList.add('menu--open');
       menuClose?.focus();
     }
 
     function closeMenu() {
-      overlay?.classList.remove('overlay--active');
-      overlay?.setAttribute('aria-hidden', 'true');
-      menuButton?.setAttribute('aria-expanded', 'false');
-      menuButton?.focus();
+      overlay!.classList.remove('overlay--active');
+      overlay!.setAttribute('aria-hidden', 'true');
+      menuButton!.setAttribute('aria-expanded', 'false');
+      menuButton!.setAttribute('aria-label', 'Open menu');
+      menuButton!.classList.remove('menu--open');
+      menuButton!.focus();
     }
 
-    menuButton?.addEventListener('click', () => {
-      const isOpen = overlay?.classList.contains('overlay--active');
-      if (isOpen) closeMenu();
-      else openMenu();
+    menuButton.addEventListener('click', () => {
+      overlay!.classList.contains('overlay--active') ? closeMenu() : openMenu();
     });
 
     menuClose?.addEventListener('click', closeMenu);
@@ -73,14 +84,10 @@
       if ((e.target as HTMLElement).tagName === 'A') closeMenu();
     });
 
-    overlay?.addEventListener('keydown', (e: KeyboardEvent) => {
+    overlay.addEventListener('keydown', (e: KeyboardEvent) => {
       if (e.key === 'Escape') closeMenu();
     });
+  }
 
-    document.addEventListener('astro:page-load', () => {
-      overlay?.classList.remove('overlay--active');
-      overlay?.setAttribute('aria-hidden', 'true');
-      menuButton?.setAttribute('aria-expanded', 'false');
-    });
-  })();
+  document.addEventListener('astro:page-load', initMenu);
 </script>
